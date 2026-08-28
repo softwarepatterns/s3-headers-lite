@@ -1,0 +1,11 @@
+# Keep Docker build contexts small (services-rs --build-context s3-headers=…).
+# .gitignore does NOT apply to BuildKit contexts — without this file the local
+# target/ (~500MB) is shipped to the daemon on every build and churns the
+# context hash (breaking external cache determinism for local builds).
+target/
+**/target/
+.git/
+**/.git/
+.DS_Store
+.vscode/
+.idea/
